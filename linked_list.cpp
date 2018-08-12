@@ -123,6 +123,8 @@ linked* degerSilme (linked* r, int x){
   return r;
 }
 
+//  !!!!!------MAIN-------!!!!!
+
 int main() {
   linked* root = (linked*)malloc(sizeof(int));
   root -> deger = 5;
@@ -186,3 +188,36 @@ linked* root = (linked*)malloc(sizeof(linked));
 şeklinde oluşturmam gerekiyormuş, hiçbir hata ile karşılaşmadım.
 Hata ile karşılaşana kadar böyle devam ediceğim.
 */
+
+/* -4-4-4-4-4-4-4-4-
+Önceki çalışmalarımdan kalan bir silme fonksiyonum var fakat listede olmayan elemanı silmiyordu.
+Sorununu hâlâ bulamadım -.-, değişkenleri ve datatypeları bu koda uyarlamaya çalıştım, eğer onlarda bir hata olsa bile sorun bundan
+kaynaklı değil(denedim). Olmayan eleman silme kısmında mantıksal bir hata olmalı. 
+Bu fonsiyonun kullanıldığı dosyada typedef kullanılmıştır ve malloc'lar düğümü simgeleyerek yer ayırmıştır i.e 
+linked* node = (linked*)malloc(sizeof(linked));.
+Kod:
+linked * silme(linked *r, int x){
+	linked * temp;
+	linked * iter = r;	
+	
+	if (r -> deger == x){
+		temp = r;
+		r = r -> pointer;
+		free(temp);
+		return r;
+	}
+	
+	while (iter -> pointer -> deger != x && iter -> pointer != NULL){
+		iter = iter -> pointer;
+	}
+	if (iter -> pointer == NULL){
+		printf("no number");
+		return r;
+	}
+	
+	temp = iter -> pointer;
+	iter -> pointer = iter -> pointer -> pointer;
+	free(temp);
+	
+	return r;
+}

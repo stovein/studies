@@ -193,7 +193,7 @@ Hata ile karşılaşana kadar böyle devam ediceğim.
 Önceki çalışmalarımdan kalan bir silme fonksiyonum var fakat listede olmayan elemanı silmiyordu.
 Sorununu hâlâ bulamadım -.-, değişkenleri ve datatypeları bu koda uyarlamaya çalıştım, eğer onlarda bir hata olsa bile sorun bundan
 kaynaklı değil(denedim). Olmayan eleman silme kısmında mantıksal bir hata olmalı. 
-Bu fonsiyonun kullanıldığı dosyada typedef kullanılmıştır ve malloc'lar düğümü simgeleyerek yer ayırmıştır e.e 
+Bu fonsiyonun kullanıldığı dosyada typedef kullanılmıştır ve malloc'lar düğümü simgeleyerek yer ayırmıştır e.g 
 linked* node = (linked*)malloc(sizeof(linked));.
 Kod:
 linked * silme(linked *r, int x){
